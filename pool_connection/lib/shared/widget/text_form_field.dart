@@ -6,6 +6,8 @@ class TextFormFieldWidget extends StatelessWidget {
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final bool obscureText;
+  final bool readOnly;
+
   final TextInputType? keyboardType;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
@@ -24,6 +26,7 @@ class TextFormFieldWidget extends StatelessWidget {
     this.textInputAction,
     this.onChanged,
     required InputDecoration decoration,
+    required this.readOnly,
   });
 
   @override
@@ -31,6 +34,7 @@ class TextFormFieldWidget extends StatelessWidget {
     return TextFormField(
       controller: controller,
       validator: validator,
+      readOnly: readOnly,
       obscureText: obscureText,
       keyboardType: keyboardType,
       textInputAction: textInputAction,

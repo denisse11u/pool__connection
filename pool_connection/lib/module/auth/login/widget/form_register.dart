@@ -24,8 +24,7 @@ class _RegisterFormState extends State<RegisterForm> {
 
   bool pinCompleted = false;
   TextEditingController _securityWordController = TextEditingController();
-  /////
-  ///fd
+
   // void savePin(String value) {
   //   UserStorage().setPin(value);
   //   pinCompleted = true;
@@ -60,15 +59,6 @@ class _RegisterFormState extends State<RegisterForm> {
     );
   }
 
-  // Future<void> saveSecurityWord(String value) async {
-  //   await UserStorage().setSecurityWord(value);
-
-  //   Navigator.pushReplacement(
-  //     context,
-  //     MaterialPageRoute(builder: (_) => const HomePage()),
-  //   );
-  // }
-
   Future<void> valiSecurityWord() async {
     final saveWord = await UserStorage().getSecurityWord();
 
@@ -81,25 +71,6 @@ class _RegisterFormState extends State<RegisterForm> {
       pinCompleted = false;
     });
   }
-
-  //  Future<void> confirmPin(String value) async {
-  //     if (mode == PinMode.confirm) {
-  //       if (value == firstPin) {
-  //         await storage.savePin(value);
-  //         GlobalHelper.showSuccess(context, "pin creado");
-
-  //         Navigator.pushReplacement(
-  //           context,
-  //           MaterialPageRoute(builder: (_) => const HomePage()),
-  //         );
-  //       } else {
-  //         GlobalHelper.showError(context, "no coincide con el pin creado");
-  //         controller.clear();
-  //         setState(() => mode = PinMode.create);
-  //       }
-  //       return;
-  //     }
-  //   }
 
   @override
   Widget build(BuildContext context) {
@@ -119,6 +90,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   },
                   obscureText: false,
                   decoration: InputDecoration(),
+                  readOnly: false,
                 ),
                 OutlinedButton(
                   onPressed: () {

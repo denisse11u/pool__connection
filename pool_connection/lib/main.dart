@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pool_connection/module/auth/login/page/login_page.dart';
 import 'package:pool_connection/module/splash/page/splash_page.dart';
 
 void main() {
@@ -18,13 +17,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SplashPage()
+      home: SplashPage(),
     );
   }
 }
 
-
-
 final Map<String, Widget Function(BuildContext context)> routes = {
-  '/splash':(context) => SplashPage(),
+  '/splash': (context) => SplashPage(),
 };

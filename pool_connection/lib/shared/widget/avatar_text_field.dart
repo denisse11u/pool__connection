@@ -60,6 +60,7 @@ class AvatarTextField extends StatelessWidget {
             validator: (v) => v == null || v.isEmpty ? 'Requerido' : null,
             obscureText: false,
             decoration: const InputDecoration(),
+            readOnly: false,
           ),
         ),
       ],

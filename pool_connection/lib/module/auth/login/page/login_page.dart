@@ -37,23 +37,24 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (pinCreated)
-              TextButton(
-                onPressed: () => Navigator.pushReplacement(
-                  context,
-                  PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) =>
-                        ResetPasswordPage(),
-                  ),
-                ),
-                child: Text('restablecer contraseña'),
+              Title(
+                color: Colors.black,
+                child: Text((pinCreated) ? 'Login' : 'Registro'),
               ),
-            Title(
-              color: Colors.black,
-              child: Text((pinCreated) ? 'Login' : 'Registro'),
-            ),
             (pinCreated)
                 ? const LoginForm()
                 : const RegisterForm(isRecovery: false),
+
+            TextButton(
+              onPressed: () => Navigator.pushReplacement(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) =>
+                      ResetPasswordPage(),
+                ),
+              ),
+              child: Text('restablecer contraseña'),
+            ),
             const Text('Version 1.0.0'),
           ],
         ),

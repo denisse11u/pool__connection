@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:pool_connection/module/auth/login/widget/pin_text_form.dart';
 import 'package:pool_connection/module/home/page/home_page.dart';
 import 'package:pool_connection/shared/helpers/global_helper.dart';
