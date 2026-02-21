@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:pool_connection/models/wordspace_model.dart';
+import 'package:pool_connection/module/credential/page/credential_list_page.dart';
 import 'package:pool_connection/module/workspace/widget/wordspace_form.dart';
 import 'package:pool_connection/shared/helpers/global_helper.dart';
 import 'package:pool_connection/shared/storage/wordspace_storage.dart';
@@ -45,23 +46,6 @@ class _WordspaceListPageState extends State<WordspaceListPage> {
     }
 
     return Scaffold(
-      // appBar: AppBar(
-      //   leading: Row(
-      //     mainAxisAlignment: MainAxisAlignment.end,
-      //     children: [
-      //       IconButton(
-      //         onPressed: () => Navigator.pushReplacement(
-      //           context,
-      //           PageRouteBuilder(
-      //             pageBuilder: (context, animation, secondaryAnimation) =>
-      //                 WordspaceForm(),
-      //           ),
-      //         ),
-      //         icon: Icon(Icons.logout),
-      //       ),
-      //     ],
-      //   ),
-      // ),
       body: wordspaces.isEmpty
           ? Center(child: Text(' no hay espacios creados'))
           : ListView.builder(
@@ -105,7 +89,16 @@ class _WordspaceListPageState extends State<WordspaceListPage> {
                         );
                       },
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  CredentialListPage(),
+                        ),
+                      );
+                    },
                   ),
                 );
               },
