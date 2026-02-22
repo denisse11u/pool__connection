@@ -28,14 +28,9 @@ class _CredentialListPageState extends State<CredentialListPage> {
   }
 
   Future<void> loadListCredential() async {
-    final wordspaces = await storage.getAllWordspaces();
-    final ws = wordspaces.firstWhere(
-      (w) => w.id == widget.wordspaceId,
-      orElse: () =>
-          WordspaceModel(id: 0, name: '', description: '', credentials: []),
-    );
+    final data = await storage.getCredential(widget.wordspaceId!);
     setState(() {
-      credential = ws.credentials;
+      credential = data;
       isLoading = false;
     });
   }
@@ -126,8 +121,13 @@ class _CredentialListPageState extends State<CredentialListPage> {
                     ),
                   ),
                 );
+              },
+            ),
+    );
+  }
+}
 
-                // return DismissibleCard(
+// return DismissibleCard(
                 //   itemKey: c.id.toString(),
                 //   onDelete: () => deleteCredential(c.id),
 
@@ -171,8 +171,3 @@ class _CredentialListPageState extends State<CredentialListPage> {
                 //     ),
                 //   ),
                 // );
-              },
-            ),
-    );
-  }
-}

@@ -71,7 +71,7 @@ class _WordspaceListPageState extends State<WordspaceListPage> {
                           ? MemoryImage(base64Decode(wordspace.imageBase64!))
                           : null,
                       child: wordspace.imageBase64 == null
-                          ? const Icon(Icons.person)
+                          ? const Icon(Icons.photo)
                           : null,
                     ),
                   ),

@@ -78,8 +78,12 @@ class _RegisterFormState extends State<RegisterForm> {
       padding: const EdgeInsets.all(8.0),
       child: (pinCompleted)
           ? Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Palabra de seguridad'),
+                Text('Ingrese la palabra de Seguridad'),
+                const SizedBox(height: 34),
                 TextFormFieldWidget(
                   controller: _securityWordController,
                   validator: (value) {
@@ -92,6 +96,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   decoration: InputDecoration(),
                   readOnly: false,
                 ),
+                const SizedBox(height: 25),
                 OutlinedButton(
                   onPressed: () {
                     if (widget.isRecovery) {
@@ -100,6 +105,7 @@ class _RegisterFormState extends State<RegisterForm> {
                       saveSecurityWord(_securityWordController.text);
                     }
                   },
+
                   child: Text('Guardar'),
                 ),
               ],

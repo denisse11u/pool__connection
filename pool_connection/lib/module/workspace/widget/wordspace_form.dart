@@ -54,6 +54,7 @@ class _WordspaceFormState extends State<WordspaceForm> {
   }
 
   Future<void> _saveWordspace() async {
+    if (!_formKey.currentState!.validate()) return;
     final wordspace = createWordspaceObject();
     if (widget.wordspace == null) {
       await _storage.addWordspace(wordspace);

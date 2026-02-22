@@ -103,4 +103,15 @@ class WordspaceStorage {
 
     await saveAllWordspaces(list);
   }
+
+  Future<List<Credential>> getCredential(int wordspaceId) async {
+    final list = await getAllWordspaces();
+    return list
+        .firstWhere(
+          (w) => w.id == wordspaceId,
+          orElse: () =>
+              WordspaceModel(id: 0, name: '', description: '', credentials: []),
+        )
+        .credentials;
+  }
 }

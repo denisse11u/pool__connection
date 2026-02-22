@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pool_connection/config/theme/app_theme.dart';
 import 'package:pool_connection/module/splash/page/splash_page.dart';
 
 void main() {
@@ -13,10 +14,11 @@ class MyApp extends StatelessWidget {
       routes: routes,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      // theme: ThemeData(
+      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      //   useMaterial3: true,
+      // ),
+      theme: AppTheme.darkTheme,
       home: SplashPage(),
     );
   }

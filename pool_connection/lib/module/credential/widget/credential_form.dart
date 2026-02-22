@@ -78,6 +78,7 @@ class _CredentialFormState extends State<CredentialForm> {
   }
 
   Future<void> _saveCredential() async {
+    if (!_formKey.currentState!.validate()) return;
     final credential = createCredential();
     if (widget.credential == null) {
       await _storage.addCredential(widget.wordspaceId, credential);
@@ -130,7 +131,6 @@ class _CredentialFormState extends State<CredentialForm> {
 
                   TextFormFieldWidget(
                     hintText: 'nombre',
-
                     controller: nameController,
                     decoration: const InputDecoration(labelText: 'Nombre'),
                     readOnly: widget.credential != null && !isediting,
@@ -169,7 +169,8 @@ class _CredentialFormState extends State<CredentialForm> {
                     controller: urlController,
                     decoration: const InputDecoration(labelText: 'URL'),
                     readOnly: widget.credential != null && !isediting,
-                    validator: (value) => null,
+                    validator: (value) =>
+                        value == null || value.isEmpty ? 'Requerido' : null,
                     obscureText: false,
                   ),
                   const SizedBox(height: 12),

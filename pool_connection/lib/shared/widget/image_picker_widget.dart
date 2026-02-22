@@ -32,7 +32,7 @@ class ImagePickerWidget extends StatelessWidget {
             radius: 50,
             backgroundImage: imageProvider,
             child: imageProvider == null
-                ? const Icon(Icons.person, size: 40)
+                ? const Icon(Icons.photo, size: 40)
                 : null,
           ),
         ),

@@ -39,7 +39,9 @@ class _LoginPageState extends State<LoginPage> {
             if (pinCreated)
               Title(
                 color: Colors.black,
-                child: Text((pinCreated) ? 'Login' : 'Registro'),
+                child: Text(
+                  (pinCreated) ? 'Ingrese su Pin' : 'Registre su Pin',
+                ),
               ),
             (pinCreated)
                 ? const LoginForm()
@@ -53,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                       ResetPasswordPage(),
                 ),
               ),
-              child: Text('restablecer contraseña'),
+              child: Text('¿Olvidaste tu contraseña?'),
             ),
             const Text('Version 1.0.0'),
           ],
