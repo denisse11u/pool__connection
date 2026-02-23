@@ -1,0 +1,53 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+
+class ImagePickerWidget extends StatelessWidget {
+  final File? imageFile;
+  final String? imageBase64;
+  final VoidCallback onTap;
+  final VoidCallback? onEditTap;
+  final bool isediting;
+  const ImagePickerWidget({
+    super.key,
+    this.imageFile,
+    this.imageBase64,
+    required this.onTap,
+    this.onEditTap,
+    required this.isediting,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final imageProvider = imageFile != null
+        ? FileImage(imageFile!)
+        : (imageBase64 != null ? MemoryImage(base64Decode(imageBase64!)) : null)
+              as ImageProvider<Object>?;
+
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        GestureDetector(
+          onTap: onTap,
+          child: CircleAvatar(
+            radius: 50,
+            backgroundImage: imageProvider,
+            child: imageProvider == null
+                ? const Icon(Icons.photo, size: 40)
+                : null,
+          ),
+        ),
+        if (!isediting)
+          Positioned(
+            bottom: 0,
+            right: 0,
+            child: GestureDetector(
+              onTap: onTap,
+              child: Icon(Icons.add_a_photo_rounded, size: 20),
+            ),
+          ),
+      ],
+    );
+  }
+}
